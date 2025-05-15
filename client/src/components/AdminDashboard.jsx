@@ -27,7 +27,7 @@ const AdminDashboard = () => {
     if (!window.confirm("Are you sure you want to delete this booking?")) return;
 
     try {
-      await axios.delete(`http://localhost:8000/bookings/${bookingId}`);
+      await axios.delete(`https://event-booking-backend-h2xx.onrender.com/bookings/${bookingId}`);
       setBookings((prev) => prev.filter((b) => b._id !== bookingId));
       alert("Booking deleted successfully!");
     } catch (error) {
