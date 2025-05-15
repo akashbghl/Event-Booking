@@ -28,7 +28,7 @@ const BookingForm = ({ isOpen, onClose, eventTitle, eventID }) => {
         e.preventDefault();
         // TODO: Replace with actual API call
         try {
-            const res = await axios.post('http://localhost:8000/bookings', formData);
+            const res = await axios.post('https://event-booking-backend-h2xx.onrender.com/bookings', formData);
             console.log("Booking submitted for:", eventTitle, formData);
             alert("Booking successful!");
             // Clear form and close modal
