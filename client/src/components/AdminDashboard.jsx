@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/bookings");
+        const res = await axios.get("https://event-booking-backend-h2xx.onrender.com/bookings");
         setBookings(res.data.bookings);
         setLoading(false);
       } catch (error) {
