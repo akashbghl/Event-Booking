@@ -3,6 +3,9 @@ import React, { useState , useEffect } from "react";
 
 
 const BookingForm = ({ isOpen, onClose, eventTitle, eventID }) => {
+
+    const [isSubmitting,setIsSubmitting] = useState(false);
+
     const [formData, setFormData] = useState({
         eventID: "",
         name: "",
@@ -26,7 +29,8 @@ const BookingForm = ({ isOpen, onClose, eventTitle, eventID }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // TODO: Replace with actual API call
+        setIsSubmitting(true);
+
         try {
             const res = await axios.post('http://localhost:8000/bookings', formData);
             console.log("Booking submitted for:", eventTitle, formData);
@@ -38,6 +42,9 @@ const BookingForm = ({ isOpen, onClose, eventTitle, eventID }) => {
         } catch (error) {
             console.error(error.message);
             alert('Booking failed !');
+        }
+        finally{
+            setIsSubmitting(false);   
         }
     };
 
@@ -94,9 +101,9 @@ const BookingForm = ({ isOpen, onClose, eventTitle, eventID }) => {
                         </button>
                         <button
                             type="submit"
-                            className="px-4 py-2 bg-blue-600 cursor-pointer hover:bg-blue-700 text-white rounded-lg"
+                            className={`"px-4 py-2 text-white rounded-lg" ${isSubmitting? 'bg-blue-900 cursor-not-allowed':' bg-blue-600 cursor-pointer hover:bg-blue-700'}`}
                         >
-                            Confirm Booking
+                            {isSubmitting? 'submitting ...' : 'Confirm Booking'}
                         </button>
                     </div>
                 </form>
