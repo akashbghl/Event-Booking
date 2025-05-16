@@ -101,7 +101,7 @@ const BookingForm = ({ isOpen, onClose, eventTitle, eventID }) => {
                         </button>
                         <button
                             type="submit"
-                            className={`"px-4 py-2 text-white rounded-lg" ${isSubmitting? 'bg-blue-900 cursor-not-allowed':' bg-blue-600 cursor-pointer hover:bg-blue-700'}`}
+                            className={`px-4 py-2 text-white rounded-lg ${isSubmitting? 'bg-blue-900 cursor-not-allowed':' bg-blue-600 cursor-pointer hover:bg-blue-700'}`}
                         >
                             {isSubmitting? 'submitting ...' : 'Confirm Booking'}
                         </button>
